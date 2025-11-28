@@ -3,7 +3,7 @@ import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
-    const { carrito, totalPrecio, limpiarCarrito } = useCart(); 
+    const { carrito, totalPrecio, limpiarCarrito } = useCart();
     const navigate = useNavigate();
     const [datos, setDatos] = useState({
         direccion: '',
@@ -20,7 +20,6 @@ function Checkout() {
         e.preventDefault();
         // Simular proceso de pago
         setTimeout(() => {
-            // --- CAMBIO REALIZADO: Ejecutar la función para vaciar el carrito ---
             limpiarCarrito();
             navigate('/compra-exitosa');
         }, 1000);
@@ -35,12 +34,12 @@ function Checkout() {
                         <h4 className="mb-3">Dirección de Envío</h4>
                         <div className="mb-3">
                             <label className="form-label">Dirección</label>
-                            <input type="text" className="form-control" required onChange={e => setDatos({...datos, direccion: e.target.value})} />
+                            <input type="text" className="form-control" required onChange={e => setDatos({ ...datos, direccion: e.target.value })} />
                         </div>
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label className="form-label">Región</label>
-                                <select className="form-select" required onChange={e => setDatos({...datos, region: e.target.value})}>
+                                <select className="form-select" required onChange={e => setDatos({ ...datos, region: e.target.value })}>
                                     <option value="">Selecciona...</option>
                                     <option value="metropolitana">Metropolitana</option>
                                     <option value="valparaiso">Valparaíso</option>
@@ -48,10 +47,10 @@ function Checkout() {
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label className="form-label">Comuna</label>
-                                <input type="text" className="form-control" required onChange={e => setDatos({...datos, comuna: e.target.value})} />
+                                <input type="text" className="form-control" required onChange={e => setDatos({ ...datos, comuna: e.target.value })} />
                             </div>
                         </div>
-                        <hr className="my-4"/>
+                        <hr className="my-4" />
                         <h4 className="mb-3">Pago</h4>
                         <div className="mb-3">
                             <label className="form-label">Número de Tarjeta</label>

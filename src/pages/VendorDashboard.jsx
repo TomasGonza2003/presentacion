@@ -4,8 +4,6 @@ import { useProducts } from '../context/ProductContext';
 function VendorDashboard() {
     const { products } = useProducts();
 
-    // Mock orders for now as requested in the prompt "visualizar la lista de órdenes"
-    // In a real app, this would come from an OrderContext or API
     const orders = [
         { id: 101, customer: 'Juan Perez', total: 450000, status: 'Pendiente' },
         { id: 102, customer: 'Maria Garcia', total: 120000, status: 'Enviado' },
@@ -73,7 +71,7 @@ function VendorDashboard() {
                                                 <td>${order.total.toLocaleString()}</td>
                                                 <td>
                                                     <span className={`badge ${order.status === 'Pendiente' ? 'bg-warning' :
-                                                            order.status === 'Enviado' ? 'bg-info' : 'bg-success'
+                                                        order.status === 'Enviado' ? 'bg-info' : 'bg-success'
                                                         }`}>
                                                         {order.status}
                                                     </span>

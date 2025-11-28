@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
             return [];
         }
     });
-    
+
     const [showModal, setShowModal] = useState(false);
 
     // Se guardará el LocalStorage cada vez que el carrito cambie
@@ -31,21 +31,21 @@ export const CartProvider = ({ children }) => {
             console.error("Error al guardar el carrito en localStorage", error);
         }
     }, [carrito]);
-  
+
     // Funciones
     const agregarAlCarrito = (producto) => {
         const itemExistente = carrito.find(item => item.id === producto.id);
 
         if (itemExistente) {
-            setCarrito(carrito.map(item => 
-                item.id === producto.id 
-                ? { ...item, quantity: item.quantity + 1 } 
-                : item
+            setCarrito(carrito.map(item =>
+                item.id === producto.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
             ));
         } else {
             setCarrito(carritoActual => [...carritoActual, { ...producto, quantity: 1 }]);
         }
-        
+
         setShowModal(true);
     };
 
@@ -53,13 +53,12 @@ export const CartProvider = ({ children }) => {
         setCarrito(carritoActual => carritoActual.filter(item => item.id !== id));
     };
 
-    // --- NUEVA FUNCIÓN AGREGADA ---
     const limpiarCarrito = () => {
         setCarrito([]);
     };
 
     const aumentarCantidad = (id) => {
-        setCarrito(carritoActual => 
+        setCarrito(carritoActual =>
             carritoActual.map(item =>
                 item.id === id ? { ...item, quantity: item.quantity + 1 } : item
             )
@@ -93,7 +92,7 @@ export const CartProvider = ({ children }) => {
         carrito,
         agregarAlCarrito,
         eliminarDelCarrito,
-        limpiarCarrito, // <--- ¡IMPORTANTE! Exportamos la función aquí
+        limpiarCarrito,
         totalItems,
         totalPrecio,
         aumentarCantidad,

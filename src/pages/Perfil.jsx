@@ -15,7 +15,7 @@ function Perfil() {
     useEffect(() => {
         if (usuarioLogueado) {
             setEditUsername(usuarioLogueado.username);
-            setEditEmail(usuarioLogueado.email || usuarioLogueado.correo); // Handle both field names if inconsistent
+            setEditEmail(usuarioLogueado.email || usuarioLogueado.correo);
         }
     }, [usuarioLogueado]);
 

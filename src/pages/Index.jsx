@@ -25,7 +25,7 @@ function Index() {
 
   return (
     <main>
-      {/* Carousel Principal (Hero) - URL CORREGIDA */}
+      {/* Carousel Principal (Hero) */}
       <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">

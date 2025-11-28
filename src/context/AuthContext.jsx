@@ -20,17 +20,14 @@ export const AuthProvider = ({ children }) => {
     // Función LOGIN conectada al Backend
     const login = async (username, password) => {
         try {
-            // 1. Llamamos al servicio real (Axios -> EC2)
+            //Llamamos al servicio real (Axios -> EC2)
             const data = await AuthService.login(username, password);
 
-            // 2. Si es exitoso, actualizamos el ESTADO GLOBAL
-            // (Esto es lo que hace que el Header cambie sin recargar)
             setUsuarioLogueado(data);
 
             return { success: true, usuario: data, roles: data.roles };
         } catch (error) {
             console.error("Error en AuthContext login:", error);
-            // Retornamos el error para que Login.jsx lo muestre en rojo
             const message = error.response?.data?.message || "Error de credenciales";
             throw { response: { data: { message } } };
         }

@@ -6,9 +6,8 @@ function Catalogo() {
     const { products, loading } = useProducts();
     const [filtro, setFiltro] = useState('todos');
 
-    // 2. Lógica de filtrado
+    // Lógica de filtrado
     // Si el filtro es 'todos', mostramos todo. Si no, buscamos coincidencias en el nombre.
-    // Nota: En un app real, lo ideal es tener una propiedad 'category' en tu objeto producto.
     const productosFiltrados = filtro === 'todos'
         ? products
         : products.filter(p => p.name.toLowerCase().includes(filtro));
@@ -22,7 +21,6 @@ function Catalogo() {
             <div className="container">
                 <h1 className="section-title mb-4">Nuestro Catálogo</h1>
 
-                {/* --- SECCIÓN DE CATEGORÍAS (FILTROS) --- */}
                 <section className="mb-5">
                     <h4 className="mb-3 text-white-50">Filtrar por Categoría:</h4>
                     <div className="d-flex gap-2 mb-4 overflow-auto pb-2">

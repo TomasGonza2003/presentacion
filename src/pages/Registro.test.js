@@ -1,4 +1,4 @@
-// src/pages/Registro.test.js
+
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -28,11 +28,9 @@ describe('Componente Registro', () => {
       register: mockRegister,
     });
     mockNavigate.mockClear();
-    // NO usamos jest.useFakeTimers()
   });
 
   afterEach(() => {
-    // NO necesitamos jest.runOnlyPendingTimers() ni jest.useRealTimers()
   });
 
   test('debe renderizar el formulario de registro correctamente', () => {
@@ -139,7 +137,7 @@ describe('Componente Registro', () => {
     const errorDiv = await screen.findByText('Ese correo ya está registrado.');
     expect(errorDiv).toBeInTheDocument();
     expect(errorDiv.className).toContain('alert-danger');
-    
+
     // Verificamos que el botón vuelva a estar habilitado
     expect(screen.getByRole('button', { name: /registrarse/i })).not.toBeDisabled();
 

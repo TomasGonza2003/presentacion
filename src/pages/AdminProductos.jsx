@@ -19,7 +19,7 @@ function AdminProductos() {
 
     const guardarProducto = (e) => {
         e.preventDefault();
-        // Ensure price is a number
+
         const productToSave = { ...productoActual, price: parseInt(productoActual.price) };
 
         if (modoEdicion) {

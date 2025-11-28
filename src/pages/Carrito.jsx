@@ -13,7 +13,7 @@ function Carrito() {
     };
 
     // Carrito vacío
-    if (!carrito || carrito.length === 0) { 
+    if (!carrito || carrito.length === 0) {
         return (
             <main className="py-5" style={{ marginTop: '56px' }}>
                 <div className="container text-center">
@@ -53,10 +53,10 @@ function Carrito() {
                                             <td>
                                                 <div className="d-flex align-items-center">
                                                     <img
-                                                        src={producto.imageUrl || 'placeholder.jpg'} 
-                                                        alt={producto.name || 'Producto sin nombre'} 
+                                                        src={producto.imageUrl || 'placeholder.jpg'}
+                                                        alt={producto.name || 'Producto sin nombre'}
                                                         className="img-fluid rounded me-3"
-                                                        style={{ width: '100px', height: '100px', objectFit: 'contain', backgroundColor: 'white' }} 
+                                                        style={{ width: '100px', height: '100px', objectFit: 'contain', backgroundColor: 'white' }}
                                                     />
                                                     <div>
                                                         <h6 className="mb-0">{producto.name || 'Producto'}</h6>
@@ -68,23 +68,23 @@ function Carrito() {
 
                                             <td>
                                                 <div className="input-group" style={{ width: '130px' }}>
-                                                    <button 
-                                                        className="btn btn-outline-light btn-sm" 
-                                                        type="button" 
+                                                    <button
+                                                        className="btn btn-outline-light btn-sm"
+                                                        type="button"
                                                         onClick={() => disminuirCantidad(producto.id)}
                                                     >
                                                         -
                                                     </button>
-                                                    <input 
-                                                        type="text" 
-                                                        className="form-control form-control-sm text-center" 
-                                                        value={producto.quantity} 
-                                                        readOnly 
+                                                    <input
+                                                        type="text"
+                                                        className="form-control form-control-sm text-center"
+                                                        value={producto.quantity}
+                                                        readOnly
                                                         aria-label="Cantidad"
                                                     />
-                                                    <button 
-                                                        className="btn btn-outline-light btn-sm" 
-                                                        type="button" 
+                                                    <button
+                                                        className="btn btn-outline-light btn-sm"
+                                                        type="button"
                                                         onClick={() => aumentarCantidad(producto.id)}
                                                     >
                                                         +
@@ -130,7 +130,7 @@ function Carrito() {
                                 </div>
 
                                 <div className="d-grid mt-4">
-                                    {/* --- CAMBIO REALIZADO: Botón ahora es un Link --- */}
+
                                     <Link to="/checkout" className="btn btn-primary btn-lg">
                                         Continuar a Pago
                                     </Link>
